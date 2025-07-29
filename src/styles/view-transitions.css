@@ -1,0 +1,137 @@
+/* View Transition 기본 설정 */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.3s;
+  animation-timing-function: ease-in-out;
+}
+
+/* 디버깅용: view transition 진행 중 시각적 표시 */
+::view-transition-group(*) {
+  animation-duration: 0.5s;
+}
+
+/* 디버깅용: transition 중인 요소들에 테두리 표시 (개발 중에만 사용) */
+.debug-mode ::view-transition-old(*) {
+  outline: 3px solid red !important;
+  outline-offset: 2px;
+}
+
+.debug-mode ::view-transition-new(*) {
+  outline: 3px solid green !important;
+  outline-offset: 2px;
+}
+
+/* 디버깅용: view-transition-name이 설정된 요소들 표시 */
+.debug-mode [class*="card-"],
+.debug-mode [class*="image-"],
+.debug-mode [class*="title-"] {
+  position: relative;
+}
+
+.debug-mode [class*="card-"]:before,
+.debug-mode [class*="image-"]:before,
+.debug-mode [class*="title-"]:before {
+  content: attr(class);
+  position: absolute;
+  top: -20px;
+  left: 0;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  font-size: 10px;
+  padding: 2px 4px;
+  border-radius: 2px;
+  z-index: 1000;
+  pointer-events: none;
+}
+
+/* View Transition Name 클래스 기반 설정 */
+.card-1 { view-transition-name: card-1; }
+.card-2 { view-transition-name: card-2; }
+.card-3 { view-transition-name: card-3; }
+.card-4 { view-transition-name: card-4; }
+.card-5 { view-transition-name: card-5; }
+.card-6 { view-transition-name: card-6; }
+
+.image-1 { view-transition-name: image-1; }
+.image-2 { view-transition-name: image-2; }
+.image-3 { view-transition-name: image-3; }
+.image-4 { view-transition-name: image-4; }
+.image-5 { view-transition-name: image-5; }
+.image-6 { view-transition-name: image-6; }
+
+.title-1 { view-transition-name: title-1; }
+.title-2 { view-transition-name: title-2; }
+.title-3 { view-transition-name: title-3; }
+.title-4 { view-transition-name: title-4; }
+.title-5 { view-transition-name: title-5; }
+.title-6 { view-transition-name: title-6; }
+
+/* 카드 transition 스타일 - 더 부드럽고 긴 애니메이션 */
+::view-transition-old(card-1),
+::view-transition-new(card-1),
+::view-transition-old(card-2),
+::view-transition-new(card-2),
+::view-transition-old(card-3),
+::view-transition-new(card-3),
+::view-transition-old(card-4),
+::view-transition-new(card-4),
+::view-transition-old(card-5),
+::view-transition-new(card-5),
+::view-transition-old(card-6),
+::view-transition-new(card-6) {
+  animation-duration: 0.6s;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 이미지 transition 스타일 - 카드와 동일한 타이밍 */
+::view-transition-old(image-1),
+::view-transition-new(image-1),
+::view-transition-old(image-2),
+::view-transition-new(image-2),
+::view-transition-old(image-3),
+::view-transition-new(image-3),
+::view-transition-old(image-4),
+::view-transition-new(image-4),
+::view-transition-old(image-5),
+::view-transition-new(image-5),
+::view-transition-old(image-6),
+::view-transition-new(image-6) {
+  animation-duration: 0.6s;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 타이틀 transition 스타일 - 조금 더 빠른 애니메이션 */
+::view-transition-old(title-1),
+::view-transition-new(title-1),
+::view-transition-old(title-2),
+::view-transition-new(title-2),
+::view-transition-old(title-3),
+::view-transition-new(title-3),
+::view-transition-old(title-4),
+::view-transition-new(title-4),
+::view-transition-old(title-5),
+::view-transition-new(title-5),
+::view-transition-old(title-6),
+::view-transition-new(title-6) {
+  animation-duration: 0.5s;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 페이드 인/아웃 애니메이션 */
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fade-out {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+::view-transition-old(root) {
+  animation: fade-out 0.3s ease-out;
+}
+
+::view-transition-new(root) {
+  animation: fade-in 0.3s ease-in;
+} 
