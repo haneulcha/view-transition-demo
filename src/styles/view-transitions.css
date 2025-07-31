@@ -5,44 +5,6 @@
   animation-timing-function: ease-in-out;
 }
 
-/* 디버깅용: view transition 진행 중 시각적 표시 */
-::view-transition-group(*) {
-  animation-duration: 0.5s;
-}
-
-/* 디버깅용: transition 중인 요소들에 테두리 표시 (개발 중에만 사용) */
-.debug-mode ::view-transition-old(*) {
-  outline: 3px solid red !important;
-  outline-offset: 2px;
-}
-
-.debug-mode ::view-transition-new(*) {
-  outline: 3px solid green !important;
-  outline-offset: 2px;
-}
-
-/* 디버깅용: view-transition-name이 설정된 요소들 표시 */
-.debug-mode [class*="card-"],
-.debug-mode [class*="image-"],
-.debug-mode [class*="title-"] {
-  position: relative;
-}
-
-.debug-mode [class*="card-"]:before,
-.debug-mode [class*="image-"]:before,
-.debug-mode [class*="title-"]:before {
-  content: attr(class);
-  position: absolute;
-  top: -20px;
-  left: 0;
-  background: rgba(0, 0, 0, 0.8);
-  color: white;
-  font-size: 10px;
-  padding: 2px 4px;
-  border-radius: 2px;
-  z-index: 1000;
-  pointer-events: none;
-}
 
 /* View Transition Name 클래스 기반 설정 */
 .card-1 { view-transition-name: card-1; }
@@ -79,7 +41,7 @@
 ::view-transition-new(card-5),
 ::view-transition-old(card-6),
 ::view-transition-new(card-6) {
-  animation-duration: 0.6s;
+  animation-duration: 0.3s;
   animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -96,7 +58,7 @@
 ::view-transition-new(image-5),
 ::view-transition-old(image-6),
 ::view-transition-new(image-6) {
-  animation-duration: 0.6s;
+  animation-duration: 0.3s;
   animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -113,7 +75,7 @@
 ::view-transition-new(title-5),
 ::view-transition-old(title-6),
 ::view-transition-new(title-6) {
-  animation-duration: 0.5s;
+  animation-duration: 0.2s;
   animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
